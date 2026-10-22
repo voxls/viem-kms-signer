@@ -8,7 +8,6 @@ Published to GitHub Packages. Point the `@voxls` scope at it in `.npmrc`:
 
 ```ini
 @voxls:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
 ```
 
 ```sh
