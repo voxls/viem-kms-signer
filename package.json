@@ -1,0 +1,48 @@
+{
+  "name": "@voxls/viem-kms-signer",
+  "version": "0.1.0",
+  "description": "viem LocalAccount backed by an AWS KMS secp256k1 key",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voxls/viem-kms-signer.git"
+  },
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "pnpm run clean && pnpm run build:esm && pnpm run build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc -p tsconfig.cjs.json && printf '{\"type\":\"commonjs\"}' > ./dist/cjs/package.json",
+    "prepublishOnly": "pnpm run build"
+  },
+  "dependencies": {
+    "asn1js": "^3.0.5"
+  },
+  "peerDependencies": {
+    "@aws-sdk/client-kms": "^3.0.0",
+    "viem": "^2.0.0"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-kms": "^3.1155.0",
+    "typescript": "^5.9.3",
+    "viem": "^2.57.8"
+  },
+  "packageManager": "pnpm@10.30.3"
+}
