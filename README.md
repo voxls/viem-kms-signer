@@ -4,12 +4,6 @@ A viem `LocalAccount` backed by an AWS KMS `ECC_SECG_P256K1` key.
 
 ## Install
 
-Published to GitHub Packages. Point the `@voxls` scope at it in `.npmrc`:
-
-```ini
-@voxls:registry=https://npm.pkg.github.com
-```
-
 ```sh
 pnpm add @voxls/viem-kms-signer viem @aws-sdk/client-kms
 ```
@@ -35,4 +29,4 @@ The account supports `signMessage`, `signTransaction`, and `signTypedData`. The 
 
 ## Publishing
 
-`.github/workflows/publish.yml` runs on every push to `main` and publishes to GitHub Packages when the `version` in `package.json` has not been published yet. Bump the version to release.
+`.github/workflows/publish.yml` runs on every push to `main` and publishes to npm via [trusted publishing](https://docs.npmjs.com/trusted-publishers/) (OIDC, no token) when the `version` in `package.json` has not been published yet. Bump the version to release.
