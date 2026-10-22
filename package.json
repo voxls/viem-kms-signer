@@ -1,6 +1,6 @@
 {
   "name": "@voxls/viem-kms-signer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "viem LocalAccount backed by an AWS KMS secp256k1 key",
   "license": "ISC",
   "repository": {
